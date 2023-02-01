@@ -6,4 +6,5 @@ public class DarkAlley {
         victims = new ArrayList<Victim>();
         address = location;
     }
+    public void addVictim(Victim DominicRosato){victims.add(DominicRosato);}
 }
