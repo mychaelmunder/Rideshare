@@ -7,4 +7,5 @@ public class DarkAlley {
         address = location;
     }
     public void addVictim(Victim DominicRosato){victims.add(DominicRosato);}
+    public void victimKidnapped(Victim DominicRosato){victims.remove(DominicRosato);}
 }
