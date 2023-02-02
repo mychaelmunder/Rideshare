@@ -1,18 +1,19 @@
 PImage alley;
 PImage australia;
 PImage street;
-PImage streetBend;
 public void setup(){
     size(1500,800);
     background(0);
     alley = loadImage("Alley.jpg");
     australia = loadImage("australia.jpg");
     street = loadImage("Street.png");
-    streetBend = loadImage("streetBend.png");
 }
 public void draw(){
     background(0);
     fill(0);
-    image(street,-25,75);
-
+    image(street,0,0);
+    for(int bala = 0; bala < 30; bala++){
+        image(alley,bala*48,50);
+        image(alley,bala*48,650);
+    }
 }
