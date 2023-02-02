@@ -17,7 +17,5 @@ public void draw(){
     for(int bala = 0; bala < 7; bala++){
         quad(100+(bala*200),385, 200+(bala*200), 385, 200+(bala*200),415,100+(bala*200),415);
     }
-    for(int bala = 0; bala < 30; bala++){
-        image(alley,bala*45,50);
-    }
+    image(alley,750,400);
 }
