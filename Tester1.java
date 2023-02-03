@@ -1,7 +1,7 @@
 public class Tester1 {
     public static void main(String[] args) {
         Victim vic1 = new Victim();
-        Victim vic2 - new Victim();
+        Victim vic2 = new Victim();
         WhiteVan van1 = new WhiteVan();
         WhiteVan van2 = new WhiteVan();
         vic1.getLocation();
