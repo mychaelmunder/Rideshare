@@ -3,9 +3,8 @@ public class Tester1 {
         Victim vic1 = new Victim();
         WhiteVan van1 = new WhiteVan();
         WhiteVan van2 = new WhiteVan();
-        System.out.println(vic1.getLocation());
-        System.out.println(vic1.isKidnapped());
-
+        System.out.println(vic1.location);
+        System.out.print(vic1.destination);
         Chicago chicago = new Chicago(50,20);
     }
 }

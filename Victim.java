@@ -10,6 +10,7 @@ public class Victim{
         destination = (int)(Math.random()*31);
         isKidnapped = false;
         atDestination = false;
+        if(location == destination){welcomeHome();}
     }
     public int getLocation(){return location;}
     public int getDestination(){return destination;}
