@@ -12,7 +12,6 @@ public class Tester1 {
         vic2.isKidnapped();
         van1.move();
         van2.move()
-        
         Chicago chicago = new Chicago(50,20);
     }
 }
