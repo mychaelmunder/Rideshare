@@ -3,8 +3,8 @@ public class Tester1 {
         Victim vic1 = new Victim();
         WhiteVan van1 = new WhiteVan();
         WhiteVan van2 = new WhiteVan();
-        System.out.println(vic1.location);
         System.out.print(vic1.destination);
+           System.out.println(vic1.location);
         Chicago chicago = new Chicago(50,20);
     }
 }
