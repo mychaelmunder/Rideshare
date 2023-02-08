@@ -10,9 +10,9 @@ public class Tester1 {
         String numvan = scan2.nextLine();
 
         Chicago chicago = new Chicago(int numvic, int numvan);
-            for(int bala = 0, bala < numvan, bala++)
-                WhiteVan[i].move()
-
+            for(int bala = 0; bala < numvan; bala++){
+                chicago.kidnappers[bala].move();
+            }
 
         
     }
