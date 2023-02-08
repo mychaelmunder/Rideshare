@@ -10,14 +10,17 @@ public void setup(){
     street = loadImage("Street.png");
     whiteVan = loadImage("whitevan.png");
     Chicago chicago = new Chicago(50,20);
+    imageMode(CENTER);
 }
 public void draw(){
     background(0);
     fill(0);
-    image(street,-50,75);
+    image(street,600,400);
     image(whiteVan, 200, 200);
     for(int bala = 0; bala < 13; bala++){
-        image(alley, bala*80,50);
-        image(australia,bala*80,650);
+        image(alley, bala*85,100);
+        image(australia,bala*85,700);
     }
+
+
 }
