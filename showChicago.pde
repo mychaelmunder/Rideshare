@@ -31,7 +31,7 @@ public void draw(){
         image(alley, bala*85 + 25,100);
         image(australia,bala*85 + 25,700);
     }
-    
+    image(alley25,1150,125);
 
 
 }
