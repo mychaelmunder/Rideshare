@@ -16,7 +16,10 @@ public void setup(){
 public void draw(){
     background(0);
     fill(0);
-    image(street,-25,75);
+    image(street,-50,75);
     image(whiteVan, 200, 200);
-
+    for(int bala = 0; bala < 12; bala++){
+        image(alley, bala*80,50);
+        image(australia,bala*80,650);
+    }
 }
