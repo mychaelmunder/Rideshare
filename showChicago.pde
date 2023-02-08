@@ -16,8 +16,8 @@ public void draw(){
     fill(0);
     image(street,-50,75);
     image(whiteVan, 200, 200);
-    for(int bala = 0; bala < 12; bala++){
-        image(alley, bala*90,50);
-        image(australia,bala*90,650);
+    for(int bala = 0; bala < 13; bala++){
+        image(alley, bala*80,50);
+        image(australia,bala*80,650);
     }
 }
