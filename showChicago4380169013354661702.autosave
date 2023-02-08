@@ -11,7 +11,7 @@ public void setup(){
     street = loadImage("Street.png");
     streetBend = loadImage("streetBend.png");
     whiteVan = loadImage("whitevan.png");
-    Chicago chicago = new Chicago(50,20);
+    Chicago chicago = new chicago(50,20);
 }
 public void draw(){
     background(0);
