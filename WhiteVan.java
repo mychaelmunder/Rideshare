@@ -13,24 +13,26 @@ public class WhiteVan {
         start = location;
         destination = (int)(Math.random()*31);
         done = false;
-        if(start <= destination){direction = 1;}
-        else{direction = -1;}
+        if(start < destination){direction = 1;}
+        else if(start > destination){direction = -1;}
+        else{done = true;}
     }
 
     public void move(){
-        if(!done){
         if(location<destination){location++;} //move the van towards its destination
-        else if(location>destination){location++;}
+        else if(location>destination){location--;}
         if(location == destination){ //if the van reaches its destination, drop everyone off
-            for(Victim DominicRosato:kidnapped){
+            for(int bala = 0; bala<kidnapped.size(); bala++){
+                Victim DominicRosato = kidnapped.get(bala);
                 DominicRosato.gone(location);
                 DominicRosato.eject();
                 kidnapped.remove(DominicRosato);
                 Chicago.theStreets[location].addVictim(DominicRosato);
                 done = true;
             }
-            }else{
-            for(Victim DominicRosato:kidnapped){ //dropping people off if this is their stop
+        }else{
+                for(int bala = 0; bala<kidnapped.size(); bala++){
+                    Victim DominicRosato = kidnapped.get(bala); //dropping people off if this is their stop
                 DominicRosato.gone(location);
                 if(location == DominicRosato.destination){
                     DominicRosato.eject();
@@ -39,8 +41,9 @@ public class WhiteVan {
                 }
             
             }
-            DarkAlley shadyPlace = Chicago.theStreets[location]; //picking people up if there's space and if they're going the same way
-            for(Victim DominicRosato:shadyPlace.victims){
+            DarkAlley shadyPlace = Chicago.theStreets[location-1]; //picking people up if there's space and if they're going the same way
+            for(int bala = 0;bala < shadyPlace.victims.size();bala++){
+            Victim DominicRosato = shadyPlace.victims.get(bala);
                 if(kidnapped.size()<3 && shadyPlace.victims.size()>0){
                     if(!DominicRosato.atDestination){
                         if((start < location && DominicRosato.location < DominicRosato.destination)||(start > location && DominicRosato.location > DominicRosato.destination)){
@@ -54,4 +57,4 @@ public class WhiteVan {
     }
     }
 }
-}
+

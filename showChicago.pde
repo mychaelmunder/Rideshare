@@ -3,7 +3,7 @@ PImage australia;
 PImage street;
 PImage whiteVan;
 PImage putItInReverse;
-int count = 60;
+int count = 92;
 Chicago chicago = new Chicago(50,25);
 public void setup(){
     size(1500,800);
@@ -32,66 +32,77 @@ public void draw(){
     image(australia,30,690);
     boolean inAustralia;
     int vanLocation;
-    for(WhiteVan illegalActivities:Chicago.kidnappers){
-    if(count == 60){
-    count = 0;
-      illegalActivities.move();
-        if(illegalActivities.location >14){
+    int total = 0;
+
+    for(int bala = 0; bala < Chicago.kidnappers.length; bala++){
+    WhiteVan illegalActivities = Chicago.kidnappers[bala]; 
+    vanLocation = 0;
+    if(illegalActivities.done){
+        if(illegalActivities.destination >14){
             inAustralia = true;
-            vanLocation = (illegalActivities.location - 15) * 91 + 50;
+            vanLocation = (illegalActivities.destination - 15) * 92 + 50;
             }
         else{
             inAustralia = false;
-            vanLocation = illegalActivities.location * 92 + 125;
+            vanLocation = illegalActivities.destination * 92 + 125;
             }
         if(illegalActivities.direction == 1){
             if(inAustralia){
                 image(whiteVan,vanLocation,800);
-                text(illegalActivities.start,vanLocation - 25, 825);
+                text("done",vanLocation - 25, 825);
             }else{
                 image(whiteVan,vanLocation,300);
-                text(illegalActivities.start,vanLocation - 25, 325);
+                text("done",vanLocation - 25, 325);
             }
         }else{
             if(inAustralia){
                 image(putItInReverse,vanLocation,600);
-                text(illegalActivities.start,vanLocation - 25, 625);
+                text("done",vanLocation - 25, 625);
             }else{
                 image(putItInReverse,vanLocation,200);
-                text(illegalActivities.start,vanLocation - 25, 225);
+                text("done",vanLocation - 25, 225);
             }
         }
     }else{
-      if(illegalActivities.location >14){
+        if(count == 92){
+        count = 0;
+        illegalActivities.move();
+        }else{
+            if(illegalActivities.direction == 1){vanLocation +=count;}
+            else{vanLocation -=count;}
+        }
+        if(illegalActivities.location >14){
             inAustralia = true;
-            vanLocation = (illegalActivities.location - 15) * 91 + 50;
+            vanLocation = vanLocation + (illegalActivities.location - 15) * 92 + 50;
             }
         else{
             inAustralia = false;
-            vanLocation = illegalActivities.location * 92 + 125;
+            vanLocation = vanLocation + illegalActivities.location * 92 + 125;
             }
         if(illegalActivities.direction == 1){
-            vanLocation += + (int)(92/200 * count);
             if(inAustralia){
                 image(whiteVan,vanLocation,800);
-                text(illegalActivities.start,vanLocation - 25, 825);
+                text(illegalActivities.location,vanLocation - 25, 825);
+                text(illegalActivities.destination,vanLocation + 25, 825);
             }else{
                 image(whiteVan,vanLocation,300);
-                text(illegalActivities.start,vanLocation - 25, 325);
+                text(illegalActivities.location,vanLocation - 25, 325);
+                text(illegalActivities.destination,vanLocation + 25, 325);
             }
         }else{
-            vanLocation -= + (int)(92/200 * count);
             if(inAustralia){
                 image(putItInReverse,vanLocation,600);
-                text(illegalActivities.start,vanLocation - 25, 625);
+                text(illegalActivities.location,vanLocation - 25, 625);
+                text(illegalActivities.destination,vanLocation + 25, 625);
             }else{
                 image(putItInReverse,vanLocation,200);
-                text(illegalActivities.start,vanLocation - 25, 225);
+                text(illegalActivities.location,vanLocation - 25, 225);
+                text(illegalActivities.destination,vanLocation + 25, 225);
             }
         }
-    }
-      
-    
-    count++;
+    }  
+    text(vanLocation, total * 40, 400);
+    total++;
 }
+count++;
 }
