@@ -6,7 +6,7 @@ PImage street;
 PImage whiteVan;
 PImage putItInReverse; 
 int count = 90;
-Chicago chicago = new Chicago(50,25); // initiliaze the street
+Chicago chicago = new Chicago(50,25); // initialize the street
 public void setup(){ // canvas 
     size(1500,800);
     background(0);
