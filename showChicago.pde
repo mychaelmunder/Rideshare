@@ -25,19 +25,38 @@ public void draw(){
     text("mile 0", 10,150);
     text("mile 16", 10,450);
     for(int bala = 0; bala < 15; bala++){
-        image(alley, bala*90 + 125,100);
-        image(australia,bala*90 + 125,690);
+        image(alley, bala*92 + 125,100);
+        image(australia,bala*92 + 125,690);
     }
     image(australia,30,690);
     int count = 0;
     boolean inAustralia;
     int vanLocation;
-    int vanLocation;
     for(WhiteVan illegalActivities:Chicago.kidnappers){
-        if(illegalActivities.location >15){inAustralia = true;}
-        else{inAustralia = false;}
+        if(illegalActivities.location >14){
+            inAustralia = true;
+            vanLocation = (illegalActivities.location - 15) * 91 + 50;
+            }
+        else{
+            inAustralia = false;
+            vanLocation = illegalActivities.location * 92 + 125;
+            }
         if(illegalActivities.direction == 1){
-            
+            if(inAustralia){
+                image(whiteVan,vanLocation,800);
+                text(illegalActivities.start,vanLocation - 25, 825);
+            }else{
+                image(whiteVan,vanLocation,300);
+                text(illegalActivities.start,vanLocation - 25, 325);
+            }
+        }else{
+            if(inAustralia){
+                image(putItInReverse,vanLocation,600);
+                text(illegalActivities.start,vanLocation - 25, 625);
+            }else{
+                image(putItInReverse,vanLocation,200);
+                text(illegalActivities.start,vanLocation - 25, 225);
+            }
         }
     
     }
