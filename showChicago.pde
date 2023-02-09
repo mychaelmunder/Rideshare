@@ -6,8 +6,8 @@ PImage street;
 PImage whiteVan;
 PImage putItInReverse; 
 int count = 90;
-Chicago chicago = new Chicago(50,25);
-public void setup(){
+Chicago chicago = new Chicago(50,25); // initiliaze the street
+public void setup(){ // canvas 
     size(1500,800);
     background(0);
     alley = loadImage("Alley.jpg");
@@ -54,7 +54,7 @@ public void draw(){
     for(int bala = 0; bala < Chicago.kidnappers.length; bala++){
     WhiteVan illegalActivities = Chicago.kidnappers[bala]; 
     vanLocation = 0;
-    if(illegalActivities.done){
+    if(illegalActivities.done){ 
         fill(0,255,0);
         if(illegalActivities.destination >14){
             inAustralia = true;
@@ -83,7 +83,7 @@ public void draw(){
         }
         fill(255);
     }else{
-        if(count == 90){
+        if(count == 90){ // van pacman loop
         reset = true;
         illegalActivities.move();
         }else{
@@ -128,6 +128,6 @@ public void draw(){
 count++;
 if(reset){
     count = 0;
-    delay(500);
+    delay(500); 
     }
 }
