@@ -5,6 +5,7 @@ public class WhiteVan {
     int start;
     int destination;
     int moneys;
+    int direction;
     boolean done;
     public WhiteVan(){
         kidnapped = new ArrayList<Victim>();
@@ -12,6 +13,8 @@ public class WhiteVan {
         start = location;
         destination = (int)(Math.random()*31);
         done = false;
+        if(location < direction){direction = 1;}
+        else{direction = -1;}
     }
 
     public void move(){
