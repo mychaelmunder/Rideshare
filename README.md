@@ -1,4 +1,6 @@
 # Rideshare
+Runner file is showChicago.pde
+
 31 mile length of road with stations located at each mile. 
 Every passenger has a destination station they are trying to get to. 
 Drivers earn $1 for every mile they take a passenger. 

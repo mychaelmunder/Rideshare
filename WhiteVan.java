@@ -13,9 +13,9 @@ public class WhiteVan {
         start = location;
         destination = (int)(Math.random()*31);
         done = false;
+        while(start == destination){destination = (int)(Math.random()*31);}
         if(start < destination){direction = 1;}
         if(start > destination){direction = -1;}
-        if(start == destination){done = true;}
     }
 
     public void move(){
@@ -58,7 +58,7 @@ public class WhiteVan {
     }
     }
     public static double averageMoneys(){
-        double magicalNumber = moneys/(Chicago.kidnappers.length);
+        double magicalNumber = moneys/(double)(Chicago.kidnappers.length);
         return magicalNumber;
     }
 }

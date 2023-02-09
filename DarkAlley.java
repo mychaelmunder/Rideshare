@@ -8,4 +8,18 @@ public class DarkAlley {
     }
     public void addVictim(Victim DominicRosato){victims.add(DominicRosato);}
     public void victimKidnapped(Victim DominicRosato){victims.remove(DominicRosato);}
+    public ArrayList<Victim> isntHome(){
+        ArrayList<Victim> somewhereTheyShouldntBe = new ArrayList<Victim>();
+        for(Victim DominicRosato:victims){
+            if(!DominicRosato.atDestination){somewhereTheyShouldntBe.add(DominicRosato);}
+        }
+        return somewhereTheyShouldntBe;
+    }
+    public ArrayList<Victim> isHome(){
+        ArrayList<Victim> somewhereTheyShouldBe = new ArrayList<Victim>();
+        for(Victim DominicRosato:victims){
+            if(DominicRosato.atDestination){somewhereTheyShouldBe.add(DominicRosato);}
+        }
+        return somewhereTheyShouldBe;
+    }
 }

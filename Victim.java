@@ -6,11 +6,11 @@ public class Victim{
     boolean atDestination;
     public Victim(){
         location = (int)(Math.random()*31);
-        start = location;
         destination = (int)(Math.random()*31);
         isKidnapped = false;
         atDestination = false;
-        if(location == destination){welcomeHome();}
+        while(location == destination){destination = (int)(Math.random()*31);}
+        start = location;
     }
     public int getLocation(){return location;}
     public int getDestination(){return destination;}
