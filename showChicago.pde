@@ -26,7 +26,7 @@ public void draw(){
     text("Average revenue: $" + WhiteVan.averageMoneys(),10,20);
     int areHome = 0;
     for(DarkAlley shadyPlace:Chicago.theStreets){areHome+=shadyPlace.isHome().size();}
-    text("Number of people at destination: " + areHome,200,20);
+    text("Number of people at destination: " + areHome + "/" + Chicago.innocents.length,200,20);
     for(int bala = 0; bala < 15; bala++){
         image(alley, bala*90 + 120,100);
         fill(255,0,0);
@@ -90,11 +90,11 @@ public void draw(){
         }
         if(illegalActivities.location >14){
             inAustralia = true;
-            vanLocation = vanLocation + (illegalActivities.location - 15) * 90 + 55;
+            vanLocation = vanLocation + (illegalActivities.location - 15) * 90 + 30;
             }
         else{
             inAustralia = false;
-            vanLocation = vanLocation + illegalActivities.location * 90 + 110;
+            vanLocation = vanLocation + illegalActivities.location * 90 + 120;
             }
         if(illegalActivities.direction == 1){
             if(inAustralia){
@@ -124,5 +124,8 @@ public void draw(){
     }  
 }
 count++;
-if(reset){count = 0;}
+if(reset){
+    count = 0;
+    delay(500);
+    }
 }
