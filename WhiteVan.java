@@ -4,7 +4,7 @@ public class WhiteVan {
     int location;
     int start;
     int destination;
-    int moneys;
+    static int moneys = 0;
     int direction;
     boolean done;
     public WhiteVan(){
@@ -14,28 +14,28 @@ public class WhiteVan {
         destination = (int)(Math.random()*31);
         done = false;
         if(start < destination){direction = 1;}
-        else if(start > destination){direction = -1;}
-        else{done = true;}
+        if(start > destination){direction = -1;}
+        if(start == destination){done = true;}
     }
 
     public void move(){
+        moneys+=kidnapped.size();
         if(location<destination){location++;} //move the van towards its destination
-        else if(location>destination){location--;}
+        if(location>destination){location--;}
         if(location == destination){ //if the van reaches its destination, drop everyone off
             for(int bala = 0; bala<kidnapped.size(); bala++){
                 Victim DominicRosato = kidnapped.get(bala);
                 DominicRosato.gone(location);
-                DominicRosato.eject();
                 kidnapped.remove(DominicRosato);
                 Chicago.theStreets[location].addVictim(DominicRosato);
-                done = true;
             }
+            done = true;
         }else{
                 for(int bala = 0; bala<kidnapped.size(); bala++){
                     Victim DominicRosato = kidnapped.get(bala); //dropping people off if this is their stop
                 DominicRosato.gone(location);
                 if(location == DominicRosato.destination){
-                    DominicRosato.eject();
+                    Chicago.theStreets[location].addVictim(DominicRosato);
                     kidnapped.remove(DominicRosato);
                     DominicRosato.welcomeHome();
                 }
@@ -47,7 +47,6 @@ public class WhiteVan {
                 if(kidnapped.size()<3 && shadyPlace.victims.size()>0){
                     if(!DominicRosato.atDestination){
                         if((start < location && DominicRosato.location < DominicRosato.destination)||(start > location && DominicRosato.location > DominicRosato.destination)){
-                            DominicRosato.kidnap();
                             kidnapped.add(DominicRosato);
                             shadyPlace.victimKidnapped(DominicRosato);
                         }
@@ -55,6 +54,10 @@ public class WhiteVan {
                 }
             }
     }
+    }
+    public static double averageMoneys(){
+        double magicalNumber = moneys/(Chicago.kidnappers.length);
+        return magicalNumber;
     }
 }
 
