@@ -13,7 +13,7 @@ public class WhiteVan {
         start = location;
         destination = (int)(Math.random()*31);
         done = false;
-        if(location < direction){direction = 1;}
+        if(start <= destination){direction = 1;}
         else{direction = -1;}
     }
 
