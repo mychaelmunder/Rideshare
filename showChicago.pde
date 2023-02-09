@@ -8,6 +8,7 @@ PImage putItInReverse;
 int count = 90;
 Chicago chicago = new Chicago(50,20); // initialize the street
 public void setup(){ // canvas 
+    frameRate(100);
     size(1500,800);
     background(0);
     alley = loadImage("Alley.jpg");
@@ -129,6 +130,6 @@ public void draw(){
 count++;
 if(reset){ //stopping the vans at stations and resetting the move count
     count = 0;
-    delay(500); 
+//    delay(500); 
     }
 }

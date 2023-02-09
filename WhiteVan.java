@@ -11,7 +11,7 @@ public class WhiteVan { // car class
         location = (int)(Math.random()*31);
         destination = (int)(Math.random()*31);
         done = false;
-        while(location == destination){destination = (int)(Math.random()*31);}
+        while(Math.abs(location - destination) < 3){destination = (int)(Math.random()*31);}//makes the vans have a minimum travel distance
         if(location < destination){direction = 1;}
         if(location > destination){direction = -1;}
     }
@@ -20,6 +20,17 @@ public class WhiteVan { // car class
         moneys+=kidnapped.size();
         if(location<destination){location++;} //move the van towards its destination
         if(location>destination){location--;}
+        for(int bala = 0; bala<kidnapped.size(); bala++){
+            Victim DominicRosato = kidnapped.get(bala); //dropping people off if this is their stop
+        DominicRosato.gone(location);
+        if(location == DominicRosato.destination){
+            Chicago.theStreets[location].addVictim(DominicRosato);
+            DominicRosato.welcomeHome();
+            kidnapped.remove(bala);
+            bala--;
+        }
+    
+    }
         if(location == destination){ //if the van reaches its destination, drop everyone off
             while(kidnapped.size()!=0){
                 Victim DominicRosato = kidnapped.get(0);
@@ -29,17 +40,6 @@ public class WhiteVan { // car class
             }
             done = true;
         }else{
-                for(int bala = 0; bala<kidnapped.size(); bala++){
-                    Victim DominicRosato = kidnapped.get(bala); //dropping people off if this is their stop
-                DominicRosato.gone(location);
-                if(location == DominicRosato.destination){
-                    Chicago.theStreets[location].addVictim(DominicRosato);
-                    DominicRosato.welcomeHome();
-                    kidnapped.remove(bala);
-                    bala--;
-                }
-            
-            }
             DarkAlley shadyPlace = Chicago.theStreets[location]; //picking people up if there's space and if they're going the same way
             for(int bala = 0;bala < shadyPlace.victims.size();bala++){
                 if(kidnapped.size()<3 && shadyPlace.victims.size()>0){
