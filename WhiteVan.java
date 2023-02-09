@@ -23,11 +23,11 @@ public class WhiteVan {
         if(location<destination){location++;} //move the van towards its destination
         if(location>destination){location--;}
         if(location == destination){ //if the van reaches its destination, drop everyone off
-            for(int bala = 0; bala<kidnapped.size(); bala++){
-                Victim DominicRosato = kidnapped.get(bala);
+            while(kidnapped.size()!=0){
+                Victim DominicRosato = kidnapped.get(0);
                 DominicRosato.gone(location);
-                kidnapped.remove(DominicRosato);
                 Chicago.theStreets[location].addVictim(DominicRosato);
+                kidnapped.remove(DominicRosato);
             }
             done = true;
         }else{
@@ -36,19 +36,21 @@ public class WhiteVan {
                 DominicRosato.gone(location);
                 if(location == DominicRosato.destination){
                     Chicago.theStreets[location].addVictim(DominicRosato);
-                    kidnapped.remove(DominicRosato);
                     DominicRosato.welcomeHome();
+                    kidnapped.remove(bala);
+                    bala--;
                 }
             
             }
-            DarkAlley shadyPlace = Chicago.theStreets[location-1]; //picking people up if there's space and if they're going the same way
+            DarkAlley shadyPlace = Chicago.theStreets[location]; //picking people up if there's space and if they're going the same way
             for(int bala = 0;bala < shadyPlace.victims.size();bala++){
-            Victim DominicRosato = shadyPlace.victims.get(bala);
                 if(kidnapped.size()<3 && shadyPlace.victims.size()>0){
+                    Victim DominicRosato = shadyPlace.victims.get(bala);
                     if(!DominicRosato.atDestination){
                         if((start < location && DominicRosato.location < DominicRosato.destination)||(start > location && DominicRosato.location > DominicRosato.destination)){
                             kidnapped.add(DominicRosato);
-                            shadyPlace.victimKidnapped(DominicRosato);
+                            shadyPlace.victims.remove(bala);
+                            bala--;
                         }
                     }
                 }
