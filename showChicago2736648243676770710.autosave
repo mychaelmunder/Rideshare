@@ -3,7 +3,7 @@ PImage australia;
 PImage street;
 PImage whiteVan;
 PImage putItInReverse;
-int count = 90;
+int count = 92;
 Chicago chicago = new Chicago(50,25);
 public void setup(){
     size(1500,800);
@@ -17,22 +17,20 @@ public void setup(){
 }
 public void draw(){
     background(0);
-    image(street,850,700);
-    image(street,850,400);
-
+    image(street,600,400);
+    image(street,1200,400);
+    image(street,600,700);
+    image(street,1200,700);
     fill(255);
     textSize(16);
     text("mile 0", 10,150);
     text("mile 16", 10,450);
-    text("Average revenue: $" + WhiteVan.averageMoneys() + " " + WhiteVan.moneys, 10,20);
+    text("Average revenue: $" + WhiteVan.averageMoneys(), 10,20);
     for(int bala = 0; bala < 15; bala++){
-        image(alley, bala*90 + 120,100);
-        text(Chicago.theStreets[bala].victims.size(),bala*90 +115, 70);
-        image(australia,bala*90 + 120,690);
-        text(Chicago.theStreets[bala+16].victims.size(),bala*90 +115, 730);
+        image(alley, bala*92 + 125,100);
+        image(australia,bala*92 + 125,690);
     }
     image(australia,30,690);
-    text(Chicago.theStreets[15].victims.size(),25,730);
     boolean inAustralia;
     int vanLocation;
     int total = 0;
@@ -43,31 +41,31 @@ public void draw(){
     if(illegalActivities.done){
         if(illegalActivities.destination >14){
             inAustralia = true;
-            vanLocation = (illegalActivities.destination - 15) * 90 + 30;
+            vanLocation = (illegalActivities.destination - 15) * 92 + 50;
             }
         else{
             inAustralia = false;
-            vanLocation = illegalActivities.destination * 90 + 120;
+            vanLocation = illegalActivities.destination * 92 + 125;
             }
         if(illegalActivities.direction == 1){
             if(inAustralia){
-                image(whiteVan,vanLocation,600);
-                text("done",vanLocation - 25, 625);
+                image(whiteVan,vanLocation,800);
+                text("done",vanLocation - 25, 825);
             }else{
                 image(whiteVan,vanLocation,300);
                 text("done",vanLocation - 25, 325);
             }
         }else{
             if(inAustralia){
-                image(putItInReverse,vanLocation,500);
-                text("done",vanLocation - 25, 525);
+                image(putItInReverse,vanLocation,600);
+                text("done",vanLocation - 25, 625);
             }else{
                 image(putItInReverse,vanLocation,200);
                 text("done",vanLocation - 25, 225);
             }
         }
     }else{
-        if(count == 90){
+        if(count == 92){
         reset = true;
         illegalActivities.move();
         }else{
@@ -76,11 +74,11 @@ public void draw(){
         }
         if(illegalActivities.location >14){
             inAustralia = true;
-            vanLocation = vanLocation + (illegalActivities.location - 15) * 90 + 55;
+            vanLocation = vanLocation + (illegalActivities.location - 15) * 92 + 50;
             }
         else{
             inAustralia = false;
-            vanLocation = vanLocation + illegalActivities.location * 90 + 110;
+            vanLocation = vanLocation + illegalActivities.location * 92 + 125;
             }
         if(illegalActivities.direction == 1){
             if(inAustralia){
@@ -108,7 +106,6 @@ public void draw(){
             }
         }
     }  
-    text(illegalActivities.location,total * 40, 425);
     text(vanLocation, total * 40, 400);
     total++;
 }
