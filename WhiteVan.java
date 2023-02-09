@@ -18,16 +18,18 @@ public class WhiteVan {
     }
 
     public void move(){
+        if(!done){
         if(location<destination){location++;} //move the van towards its destination
         else if(location>destination){location++;}
         if(location == destination){ //if the van reaches its destination, drop everyone off
             for(Victim DominicRosato:kidnapped){
+                DominicRosato.gone(location);
                 DominicRosato.eject();
                 kidnapped.remove(DominicRosato);
                 Chicago.theStreets[location].addVictim(DominicRosato);
                 done = true;
             }
-        }else{
+            }else{
             for(Victim DominicRosato:kidnapped){ //dropping people off if this is their stop
                 DominicRosato.gone(location);
                 if(location == DominicRosato.destination){
@@ -49,6 +51,7 @@ public class WhiteVan {
                     }
                 }
             }
-        }
     }
+    }
+}
 }

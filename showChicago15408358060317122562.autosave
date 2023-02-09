@@ -3,7 +3,7 @@ PImage australia;
 PImage street;
 PImage whiteVan;
 PImage putItInReverse;
-int count = 60;
+int count = 200;
 Chicago chicago = new Chicago(50,25);
 public void setup(){
     size(1500,800);
@@ -33,7 +33,7 @@ public void draw(){
     boolean inAustralia;
     int vanLocation;
     for(WhiteVan illegalActivities:Chicago.kidnappers){
-    if(count == 60){
+    if(count == 200){
     count = 0;
       illegalActivities.move();
         if(illegalActivities.location >14){
@@ -71,7 +71,7 @@ public void draw(){
             vanLocation = illegalActivities.location * 92 + 125;
             }
         if(illegalActivities.direction == 1){
-            vanLocation += + (int)(92/200 * count);
+            vanLocation += + (int)(92/60 * count);
             if(inAustralia){
                 image(whiteVan,vanLocation,800);
                 text(illegalActivities.start,vanLocation - 25, 825);
@@ -80,7 +80,7 @@ public void draw(){
                 text(illegalActivities.start,vanLocation - 25, 325);
             }
         }else{
-            vanLocation -= + (int)(92/200 * count);
+            vanLocation -= + (int)(92/60 * count);
             if(inAustralia){
                 image(putItInReverse,vanLocation,600);
                 text(illegalActivities.start,vanLocation - 25, 625);
