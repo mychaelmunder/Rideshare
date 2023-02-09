@@ -1,8 +1,10 @@
-PImage alley;
+// Processing file for visualization
+
+PImage alley; 
 PImage australia;
 PImage street;
 PImage whiteVan;
-PImage putItInReverse;
+PImage putItInReverse; 
 int count = 90;
 Chicago chicago = new Chicago(50,25);
 public void setup(){
