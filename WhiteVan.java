@@ -1,11 +1,11 @@
 import java.util.*;
-public class WhiteVan {
-    ArrayList<Victim> kidnapped;
+public class WhiteVan { // car class
+    ArrayList<Victim> kidnapped; // utilize arraylist of passengers 
     int location;
     int start;
     int destination;
-    static int moneys = 0;
-    int direction;
+    static int moneys = 0; // static var money 
+    int direction; // left or right for processing
     boolean done;
     public WhiteVan(){
         kidnapped = new ArrayList<Victim>();
@@ -57,7 +57,7 @@ public class WhiteVan {
             }
     }
     }
-    public static double averageMoneys(){
+    public static double averageMoneys(){ // get average $$$
         double magicalNumber = moneys/(double)(Chicago.kidnappers.length);
         return magicalNumber;
     }
