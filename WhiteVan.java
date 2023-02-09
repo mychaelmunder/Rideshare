@@ -27,7 +27,7 @@ public class WhiteVan { // car class
                 Victim DominicRosato = kidnapped.get(0);
                 DominicRosato.gone(location);
                 Chicago.theStreets[location].addVictim(DominicRosato);
-                kidnapped.remove(DominicRosato);
+                kidnapped.remove(0);
             }
             done = true;
         }else{
@@ -47,7 +47,7 @@ public class WhiteVan { // car class
                 if(kidnapped.size()<3 && shadyPlace.victims.size()>0){
                     Victim DominicRosato = shadyPlace.victims.get(bala);
                     if(!DominicRosato.atDestination){
-                        if((start < location && DominicRosato.location < DominicRosato.destination)||(start > location && DominicRosato.location > DominicRosato.destination)){
+                        if((direction == 1 && DominicRosato.location < DominicRosato.destination)||(direction == -1 && DominicRosato.location > DominicRosato.destination)){
                             kidnapped.add(DominicRosato);
                             shadyPlace.victims.remove(bala);
                             bala--;
