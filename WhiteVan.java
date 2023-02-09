@@ -2,7 +2,6 @@ import java.util.*;
 public class WhiteVan { // car class
     ArrayList<Victim> kidnapped; // utilize arraylist of passengers 
     int location;
-    int start;
     int destination;
     static int moneys = 0; // static var money 
     int direction; // left or right for processing
@@ -10,12 +9,11 @@ public class WhiteVan { // car class
     public WhiteVan(){
         kidnapped = new ArrayList<Victim>();
         location = (int)(Math.random()*31);
-        start = location;
         destination = (int)(Math.random()*31);
         done = false;
-        while(start == destination){destination = (int)(Math.random()*31);}
-        if(start < destination){direction = 1;}
-        if(start > destination){direction = -1;}
+        while(location == destination){destination = (int)(Math.random()*31);}
+        if(location < destination){direction = 1;}
+        if(location > destination){direction = -1;}
     }
 
     public void move(){
