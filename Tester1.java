@@ -1,4 +1,4 @@
-import java.util.*;
+import java.util.*; // tester used throughout to make sure classes were working
 
 public class Tester1 {
     public static void main(String[] args) {
