@@ -25,11 +25,11 @@ public void draw(){
     textSize(16);
     text("mile 0", 10,150);
     text("mile 16", 10,450);
-    text("Average revenue: $" + WhiteVan.averageMoneys(),10,20);
+    text("Average revenue: $" + WhiteVan.averageMoneys(),10,20); //display relevant information
     int areHome = 0;
     for(DarkAlley shadyPlace:Chicago.theStreets){areHome+=shadyPlace.isHome().size();}
     text("Number of people at destination: " + areHome + "/" + Chicago.innocents.length,200,20);
-    for(int bala = 0; bala < 15; bala++){
+    for(int bala = 0; bala < 15; bala++){ //displaying all the alleys
         image(alley, bala*90 + 120,100);
         fill(255,0,0);
         text(Chicago.theStreets[bala].isntHome().size(),bala*90 +105, 70);
@@ -47,6 +47,7 @@ public void draw(){
     fill(0,255,0);
     text(Chicago.theStreets[15].isHome().size(),35,730);
     fill(255);
+
     boolean inAustralia;
     int vanLocation;
     int total = 0;
@@ -54,7 +55,7 @@ public void draw(){
     for(int bala = 0; bala < Chicago.kidnappers.length; bala++){
     WhiteVan illegalActivities = Chicago.kidnappers[bala]; 
     vanLocation = 0;
-    if(illegalActivities.done){ 
+    if(illegalActivities.done){ //displaying all the vans
         fill(0,255,0);
         if(illegalActivities.destination >14){
             inAustralia = true;
@@ -126,7 +127,7 @@ public void draw(){
     }  
 }
 count++;
-if(reset){
+if(reset){ //stopping the vans at stations and resetting the move count
     count = 0;
     delay(500); 
     }
